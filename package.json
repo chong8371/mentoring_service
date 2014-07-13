@@ -1,9 +1,9 @@
 {
-  "name": "angular-seed",
+  "name": "mentoring_service",
   "private": true,
   "version": "0.0.0",
-  "description": "A starter project for AngularJS",
-  "repository": "https://github.com/angular/angular-seed",
+  "description": "serving mentoring service marketplace for both mentors and mentees",
+  "repository": "https://github.com/chong8371/mentoring_service",
   "license": "MIT",
   "devDependencies": {
     "karma": "~0.10",
