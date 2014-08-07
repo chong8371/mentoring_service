@@ -2,8 +2,31 @@
 
 /* Services */
 
+angular.module('MentoringServiceApp.services', []).
+  value('version', '0.1').
+  factory('ergastAPIservice', function($http) {
+        var ergastAPI = {};
 
-// Demonstrate how to register services
-// In this case it is a simple value service.
-angular.module('myApp.services', []).
-  value('version', '0.1');
+        ergastAPI.getDrivers = function() {
+            return $http({
+                method: 'JSONP',
+                url: 'http://ergast.com/api/f1/2013/driverStandings.json?callback=JSON_CALLBACK'
+            });
+        }
+
+        ergastAPI.getDriverDetails = function(id) {
+            return $http({
+                method: 'JSONP',
+                url: 'http://ergast.com/api/f1/2013/drivers/'+ id +'/driverStandings.json?callback=JSON_CALLBACK'
+            });
+        }
+
+        ergastAPI.getDriverRaces = function(id) {
+            return $http({
+                method: 'JSONP',
+                url: 'http://ergast.com/api/f1/2013/drivers/'+ id +'/results.json?callback=JSON_CALLBACK'
+            });
+        }
+
+        return ergastAPI;
+    });

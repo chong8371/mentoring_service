@@ -2,15 +2,18 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('myApp', [
+angular.module('MentoringServiceApp', [
   'ngRoute',
-  'myApp.filters',
-  'myApp.services',
-  'myApp.directives',
-  'myApp.controllers'
+  'MentoringServiceApp.filters',
+  'MentoringServiceApp.services',
+  'MentoringServiceApp.directives',
+  'MentoringServiceApp.controllers',
+  'ui.bootstrap'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'MyCtrl1'});
-  $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', controller: 'MyCtrl2'});
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.when('/login', {templateUrl: 'partials/partial1.html', controller: 'loginCtrl'});
+  $routeProvider.when('/signup', {templateUrl: 'partials/partial2.html', controller: 'signupCtrl'});
+  $routeProvider.when('/users', {templateUrl: 'partials/users.html', controller: 'usersCtrl'});
+  $routeProvider.when('/user/:id', {templateUrl: 'partials/user.html', controller: 'userCtrl'});
+  $routeProvider.otherwise({redirectTo: '/login'});
 }]);
